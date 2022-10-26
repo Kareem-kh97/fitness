@@ -1,0 +1,2 @@
+// in this file we create or put a list of files/folders that we do not want to commit
+vendor
