@@ -6,20 +6,20 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once("rest/dao/TodoDao.class.php");
+require_once("rest/dao/FitnessDao.class.php");
 
-$dao = new TodoDao();
+$dao = new FitnessDao();
 
 $op = $_REQUEST['op'];
 
 switch ($op) {
-  // case 'insert':
-  //  $personID = $_REQUEST['personID'];
-  //  $personName = $_REQUEST['personName'];
-  //  $address = $_REQUEST['address'];
-  //  $phoneNumber = $_REQUEST['phoneNumber'];
-  //  $dao->add($personID, $personName, $address, $address, $phoneNumber);
-  //  break;
+  case 'insert':
+   $personID = $_REQUEST['personID'];
+   $personName = $_REQUEST['personName'];
+   $address = $_REQUEST['address'];
+   $phoneNumber = $_REQUEST['phoneNumber'];
+   $dao->add($personID, $personName, $address, $address, $phoneNumber);
+   break;
 
   case 'delete':
    $id = $_REQUEST['personID'];
@@ -35,6 +35,7 @@ switch ($op) {
    $dao->update($personID, $personName, $address, $address, $phoneNumber);
    echo "updated $personID";
     break;
+    
   case 'get':
   default:
    $results = $dao->get_all();
