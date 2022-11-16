@@ -1,6 +1,3 @@
-//this one talks to the dao and db,
-//and we call it via get method a browser call
-
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -14,28 +11,28 @@ $op = $_REQUEST['op'];
 
 switch ($op) {
   case 'insert':
-   $personID = $_REQUEST['personID'];
-   $personName = $_REQUEST['personName'];
+   $id = $_REQUEST['id'];
+   $name = $_REQUEST['name'];
    $address = $_REQUEST['address'];
    $phoneNumber = $_REQUEST['phoneNumber'];
-   $dao->add($personID, $personName, $address, $address, $phoneNumber);
+   $dao->add($id, $name, $address, $address, $phoneNumber);
    break;
 
   case 'delete':
-   $id = $_REQUEST['personID'];
-   $dao->delete($personID);
-   echo "DELETED $personID";
+   $id = $_REQUEST['id'];
+   $dao->delete($id);
+   echo "DELETED $id";
     break;
 
   case 'update':
-   $personID = $_REQUEST['personID'];
-   $personName = $_REQUEST['personName'];
+   $id = $_REQUEST['id'];
+   $name = $_REQUEST['name'];
    $address = $_REQUEST['address'];
    $phoneNumber = $_REQUEST['phoneNumber'];
-   $dao->update($personID, $personName, $address, $address, $phoneNumber);
-   echo "updated $personID";
+   $dao->update($id, $name, $address, $address, $phoneNumber);
+   echo "updated $id";
     break;
-    
+
   case 'get':
   default:
    $results = $dao->get_all();
